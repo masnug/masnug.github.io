@@ -50,22 +50,23 @@
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
     jQuery(function($){
-        $('.line').width(($(window).width() - 20));
-        $('body').keypress(function( event ) {
-          var text = $('#command').text();
-          if ( event.which == 13 ) {
-             event.preventDefault();
-             $('#output').append('<div class="line">nug@bitbucket.org:~$ Perintah \''+text+'\' tidak ditemukan!</div>');
+    $('.line').width(($(window).width() - 20));
+    $('body').keypress(function( event ) {
+        var text = $('#command').text();
+        if ( event.which == 13 ) {
+            event.preventDefault();
+            var command = text.split(' ')[0];
+            $('#output').append('<div class="line">nug@bitbucket.org:~$ Perintah \''+command+'\' tidak ditemukan!</div>');
             $('#command').empty();
-          } else {
-              $('#command').append(String.fromCharCode(event.which));
-          }
-        }).keyup(function(event){
-          var text = $('#command').text();
-          if ( event.which == 8 ) {
-              $('#command').html(text.slice(0,-1));
-          }
-        });
+        } else {
+          $('#command').append(String.fromCharCode(event.which));
+        }
+    }).keyup(function(event){
+        var text = $('#command').text();
+        if ( event.which == 8 ) {
+            $('#command').html(text.slice(0,-1));
+        }
+    });
     });
     </script>
   </head>
