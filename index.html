@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>masnug@bitbucket.org</title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
+    <style>
+    body {
+        padding: 10px;
+        margin: 0;
+        background-color: #111;
+        color: #eee;
+        font-family: 'Ubuntu Mono', sans-serif;
+    }
+    #console {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+    }
+    .line {
+        
+    }
+    @keyframes blink {  
+        0% { color: #eee; background-color: #eee; }
+        50% { color: #eee; background-color: #eee; }
+        60% { color: #111; background-color: #111; }
+        100% { color: #111; background-color: #111; }
+    }
+    @-webkit-keyframes blink {
+        0% { color: #eee; background-color: #eee; }
+        50% { color: #eee; background-color: #eee; }
+        60% { color: #111; background-color: #111; }
+        100% { color: #111; background-color: #111; }
+    }
+    #pointer {
+        -webkit-animation: blink 1s linear infinite;
+        -moz-animation: blink 1s linear infinite;
+        -ms-animation: blink 1s linear infinite;
+        -o-animation: blink 1s linear infinite;
+        animation: blink 1s linear infinite;
+    } 
+    </style>
+  </head>
+  <body>
+    <div id="console">
+    <div class="line">nug@bitbucket.org:~$ <span id="pointer">_</span></div>
+    </div>
+  </body>
+</html>
