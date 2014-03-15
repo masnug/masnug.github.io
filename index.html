@@ -16,9 +16,22 @@
         position: absolute;
         bottom: 10px;
         left: 10px;
+        display: table;
     }
     .line {
-        
+    }
+    #output {
+        display: table-cell;
+        vertical-align: bottom;
+        position: absolute;
+        bottom: 20px;
+    }
+    #pointer {
+        -webkit-animation: blink 1s linear infinite;
+        -moz-animation: blink 1s linear infinite;
+        -ms-animation: blink 1s linear infinite;
+        -o-animation: blink 1s linear infinite;
+        animation: blink 1s linear infinite;
     }
     @keyframes blink {  
         0% { color: #eee; background-color: #eee; }
@@ -32,18 +45,45 @@
         60% { color: #111; background-color: #111; }
         100% { color: #111; background-color: #111; }
     }
-    #pointer {
-        -webkit-animation: blink 1s linear infinite;
-        -moz-animation: blink 1s linear infinite;
-        -ms-animation: blink 1s linear infinite;
-        -o-animation: blink 1s linear infinite;
-        animation: blink 1s linear infinite;
-    } 
     </style>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+    jQuery(function($){
+        $('.line').width(($(window).width() - 20));
+        $('body').keypress(function( event ) {
+          var text = $('#command').text();
+          if ( event.which == 13 ) {
+             event.preventDefault();
+             $('#output').append('<div class="line">nug@bitbucket.org:~$ Perintah \''+text+'\' tidak ditemukan!</div>');
+            $('#command').empty();
+          } else {
+              $('#command').append(String.fromCharCode(event.which));
+          }
+        }).keyup(function(event){
+          var text = $('#command').text();
+          if ( event.which == 8 ) {
+              $('#command').html(text.slice(0,-1));
+          }
+        });
+    });
+    </script>
   </head>
   <body>
     <div id="console">
-    <div class="line">nug@bitbucket.org:~$ <span id="pointer">_</span></div>
+    <div id="output">
+        <div class="line">Halooo...</div>
+        <div class="line">Halooo...</div>
+        <div class="line">Selamat datang di...</div>
+        <div class="line">&nbsp;_&nbsp;__&nbsp;___&nbsp;&nbsp;&nbsp;__&nbsp;_&nbsp;___&nbsp;_&nbsp;__&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;__&nbsp;_&nbsp;</div>
+        <div class="line">|&nbsp;'_&nbsp;`&nbsp;_&nbsp;\&nbsp;/&nbsp;_`&nbsp;/&nbsp;__|&nbsp;'_&nbsp;\|&nbsp;|&nbsp;|&nbsp;|/&nbsp;_`&nbsp;|</div>
+        <div class="line">|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;(_|&nbsp;\__&nbsp;\&nbsp;|&nbsp;|&nbsp;|&nbsp;|_|&nbsp;|&nbsp;(_|&nbsp;|</div>
+        <div class="line">|_|&nbsp;|_|&nbsp;|_|\__,_|___/_|&nbsp;|_|\__,_|\__,&nbsp;|</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;@bitbucket.org&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__/&nbsp;|</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|___/&nbsp;</div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+    <div class="line">nug@bitbucket.org:~$ <span id="command"></span><span id="pointer">_</span></div>
     </div>
   </body>
 </html>
