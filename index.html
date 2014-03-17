@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>masnug@bitbucket.org</title>
+    <title>masnug.github.io</title>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
     <style>
     body {
@@ -56,7 +56,7 @@
         if ( event.which == 13 ) {
             event.preventDefault();
             var command = text.split(' ')[0];
-            $('#output').append('<div class="line">nug@bitbucket.org:~$ Perintah \''+command+'\' tidak ditemukan!</div>');
+            $('#output').append('<div class="line">guest@masnug.github.io:~$ Perintah \''+command+'\' tidak ditemukan!</div>');
             $('#command').empty();
         } else {
           $('#command').append(String.fromCharCode(event.which));
@@ -84,7 +84,7 @@
         <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|___/&nbsp;</div>
         <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
     </div>
-    <div class="line">nug@bitbucket.org:~$ <span id="command"></span><span id="pointer">_</span></div>
+    <div class="line">guest@masnug.github.io:~$ <span id="command"></span><span id="pointer">_</span></div>
     </div>
   </body>
 </html>
